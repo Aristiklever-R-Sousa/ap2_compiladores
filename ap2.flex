@@ -11,7 +11,8 @@ ESPACO [ ]
 COMENTARIO #.*
 BARRA_T [\t]
 BARRA_N [\n]
-var [a-zA-Z][a-zA-Z0-9]*
+PRINT ("print")
+var "var "[a-zA-Z][a-zA-Z0-9]*
 res ("if"|"else")
 
 abre_chave ["{"]
@@ -29,12 +30,13 @@ op_rel (<|>)
 
 %%
 
-{ESPACO}            {printf(" ");}
-{COMENTARIO}        {printf(" ");}
+{ESPACO}            {printf("ESPAÇO");}
+{COMENTARIO}        {printf("COMENTÁRIO");}
+{PRINT}             {printf("print");}
 {BARRA_T}           {printf("\t");}
 {BARRA_N}           {printf("\n");}
-{res}               {printf("%s", yytext);cont++;}
-{var}               {printf("[var %s]", yytext); cont++;}
+{res}               {printf("%s");}
+{var}               {printf("[var]");}
 {abre_chave}        {printf("[abre chaves]");}
 {fecha_chave}       {printf("[fecha chaves]");}
 {ponto_virgula}     {printf("[ponto_virgula]");}
@@ -42,11 +44,11 @@ op_rel (<|>)
 {fecha_parenteses}  {printf("[fecha parenteses]");}
 {op_atrib}          {printf("[operador atribuição]");}
 
-{integer}           {printf("[int %s]", yytext, yyleng);cont++;}
-{float}             {printf("[float], %s, %d\n", yytext, yyleng);cont++;}
-{double}            {printf("[double], %s, %d\n", yytext, yyleng);cont++;}
-{op_mat}            {printf("[op_mat %s]", yytext);cont++;}
-{op_rel}            {printf("[op_rel %s]", yytext);cont++;}
+{integer}           {printf("[int]", yytext, yyleng);cont++;}
+{float}             {printf("[float]", yytext, yyleng);cont++;}
+{double}            {printf("[double]", yytext, yyleng);cont++;}
+{op_mat}            {printf("[op_mat]", yytext);cont++;}
+{op_rel}            {printf("[op_rel]", yytext);cont++;}
 
 %%
 
