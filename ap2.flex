@@ -11,7 +11,7 @@ ESPACO [ ]
 COMENTARIO #[ a-zA-Z][a-zA-Z0-9]*
 BARRA_T [\t]
 BARRA_N [\n]
-var var [a-zA-Z][a-zA-Z0-9]*
+var [a-zA-Z][a-zA-Z0-9]*
 res ("if"|"else")
 
 abre_chave ["{"]
