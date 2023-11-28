@@ -1,5 +1,7 @@
 %{
-  #include <stdio.h>
+  #include <stdlib.h>
+  #define YY_DECL int yylex()
+  #include "ap2Bison.tab.h"
 
 /*
   flex -o ap2Flex.c ap2Flex.l && gcc -o ap2Flex.out ap2Flex.c -lfl && ./ap2Flex.out < input.txt
@@ -24,24 +26,24 @@ COMENTARIO #.*
 
 %%
 
-{VAR}                {printf("VAR %s\n", yytext);}
-{PRINT}              {printf("PRINT %s\n", yytext);}
-{ID}                 {printf("ID %s\n", yytext);}
-{OP_ATT}             {printf("OP_ATT %s\n", yytext);}
-{OP_SOM}             {printf("OP_SOM %s\n", yytext);}
-{OP_SUB}             {printf("OP_SUB %s\n", yytext);}
-{OP_MUL}             {printf("OP_MUL %s\n", yytext);}
-{OP_DIV}             {printf("OP_DIV %s\n", yytext);}
-{INTEIRO}            {printf("INTEIRO %s\n", yytext);}
-{PONTO_E_VIRGULA}    {printf("PONTO_E_VIRGULA %s\n", yytext);}
-{JOGO_DA_VELHA}      {printf("JOGO_DA_VELHA %s\n", yytext);}
-{ESPACO}             {printf("ESPACO %s\n", yytext);}
-{BARRA_N}            {printf("BARRA_N %s", yytext);}
-{COMENTARIO}         {printf("COMENTARIO %s\n", yytext);}
+{VAR}                {return VAR;}
+{PRINT}              {return PRINT;}
+{ID}                 {return ID;}
+{OP_ATT}             {return OP_ATT;}
+{OP_SOM}             {return OP_SOM;}
+{OP_SUB}             {return OP_SUB;}
+{OP_MUL}             {return OP_MUL;}
+{OP_DIV}             {return OP_DIV;}
+{INTEIRO}            {yylval.ival = atoi(yytext); return INTEIRO;}
+{PONTO_E_VIRGULA}    {return PONTO_E_VIRGULA;}
+{JOGO_DA_VELHA}      {;}
+{ESPACO}             {;}
+{BARRA_N}            {return BARRA_N;}
+{COMENTARIO}         {;}
 
 %%
 
-int main() {
+/* int main() {
   yylex();
   return 0;
-}
+} */

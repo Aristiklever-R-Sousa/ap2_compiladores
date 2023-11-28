@@ -54,12 +54,17 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    INTEIRO = 258,                 /* INTEIRO  */
-    OP_SUM = 259,                  /* OP_SUM  */
-    OP_SUB = 260,                  /* OP_SUB  */
-    OP_MUL = 261,                  /* OP_MUL  */
-    OP_DIV = 262,                  /* OP_DIV  */
-    T_NEWLINE = 263                /* T_NEWLINE  */
+    VAR = 258,                     /* VAR  */
+    PRINT = 259,                   /* PRINT  */
+    ID = 260,                      /* ID  */
+    OP_ATT = 261,                  /* OP_ATT  */
+    OP_SOM = 262,                  /* OP_SOM  */
+    OP_SUB = 263,                  /* OP_SUB  */
+    OP_MUL = 264,                  /* OP_MUL  */
+    OP_DIV = 265,                  /* OP_DIV  */
+    INTEIRO = 266,                 /* INTEIRO  */
+    PONTO_E_VIRGULA = 267,         /* PONTO_E_VIRGULA  */
+    BARRA_N = 268                  /* BARRA_N  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -73,7 +78,7 @@ union YYSTYPE
     int ival;
     char* sval;
 
-#line 77 "ap2Bison.tab.h"
+#line 82 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
