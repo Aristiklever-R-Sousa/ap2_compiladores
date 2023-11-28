@@ -18,12 +18,12 @@ void yyerror (const char* s);
     char* sval;
 }
 
-%token<ival> T_INT
-%token T_SUM T_SUB T_MUL T_DIV T_L_PAR T_R_PAR
+%token<ival> INTEIRO
+%token OP_SUM OP_SUB OP_MUL OP_DIV
 %token T_NEWLINE
 
-%left T_SUM T_SUB
-%left T_MUL T_DIV
+%left OP_SUM OP_SUB
+%left OP_MUL OP_DIV
 
 %type<sval> exp
 
@@ -39,12 +39,11 @@ line: T_NEWLINE
     | exp T_NEWLINE      {printf("Notação posfixa: %s\n", $1); free($1);}
 ;
 
-exp: T_INT               {asprintf(&$$, "%d", $1);}
-   | exp T_SUM exp       {asprintf(&$$, "%s %s +", $1, $3); free($1); free($3);}
-   | exp T_SUB exp       {asprintf(&$$, "%s %s -", $1, $3); free($1); free($3);}
-   | exp T_MUL exp       {asprintf(&$$, "%s %s *", $1, $3); free($1); free($3);}
-   | exp T_DIV exp       {asprintf(&$$, "%s %s /", $1, $3); free($1); free($3);}
-   | T_L_PAR exp T_R_PAR {$$ = $2;}
+exp: INTEIRO               {asprintf(&$$, "%d", $1);}
+   | exp OP_SUM exp       {asprintf(&$$, "%s %s +", $1, $3); free($1); free($3);}
+   | exp OP_SUB exp       {asprintf(&$$, "%s %s -", $1, $3); free($1); free($3);}
+   | exp OP_MUL exp       {asprintf(&$$, "%s %s *", $1, $3); free($1); free($3);}
+   | exp OP_DIV exp       {asprintf(&$$, "%s %s /", $1, $3); free($1); free($3);}
 ;
 
 %%
