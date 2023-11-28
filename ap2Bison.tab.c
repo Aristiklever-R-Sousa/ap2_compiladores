@@ -518,9 +518,9 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    46,    46,    47,    50,    51,    52,    55,    56,    57,
-      58,    61,    64,    65,    66,    69,    72,    73,    74,    75,
-      76
+       0,    47,    47,    48,    51,    52,    53,    56,    57,    58,
+      59,    62,    65,    66,    67,    70,    73,    74,    75,    76,
+      77
 };
 #endif
 
@@ -1095,37 +1095,37 @@ yyreduce:
   switch (yyn)
     {
   case 11: /* declaracao: VAR ID BARRA_N  */
-#line 61 "ap2Bison.y"
-                           {asprintf(&(yyval.sval), "Declaracao: %s", (yyvsp[-1].sval));}
+#line 62 "ap2Bison.y"
+                           {printf("Declaracao: %s", (yyvsp[-1].sval));}
 #line 1101 "ap2Bison.tab.c"
     break;
 
   case 16: /* exp_mat: INTEIRO  */
-#line 72 "ap2Bison.y"
+#line 73 "ap2Bison.y"
                                    {asprintf(&(yyval.ival), "%d", (yyvsp[0].ival));}
 #line 1107 "ap2Bison.tab.c"
     break;
 
   case 17: /* exp_mat: exp_mat OP_SOM exp_mat  */
-#line 73 "ap2Bison.y"
+#line 74 "ap2Bison.y"
                                    {asprintf(&(yyval.ival), "%s %s +", (yyvsp[-2].ival), (yyvsp[0].ival)); free((yyvsp[-2].ival)); free((yyvsp[0].ival));}
 #line 1113 "ap2Bison.tab.c"
     break;
 
   case 18: /* exp_mat: exp_mat OP_SUB exp_mat  */
-#line 74 "ap2Bison.y"
+#line 75 "ap2Bison.y"
                                    {asprintf(&(yyval.ival), "%s %s -", (yyvsp[-2].ival), (yyvsp[0].ival)); free((yyvsp[-2].ival)); free((yyvsp[0].ival));}
 #line 1119 "ap2Bison.tab.c"
     break;
 
   case 19: /* exp_mat: exp_mat OP_MUL exp_mat  */
-#line 75 "ap2Bison.y"
+#line 76 "ap2Bison.y"
                                    {asprintf(&(yyval.ival), "%s %s *", (yyvsp[-2].ival), (yyvsp[0].ival)); free((yyvsp[-2].ival)); free((yyvsp[0].ival));}
 #line 1125 "ap2Bison.tab.c"
     break;
 
   case 20: /* exp_mat: exp_mat OP_DIV exp_mat  */
-#line 76 "ap2Bison.y"
+#line 77 "ap2Bison.y"
                                    {asprintf(&(yyval.ival), "%s %s /", (yyvsp[-2].ival), (yyvsp[0].ival)); free((yyvsp[-2].ival)); free((yyvsp[0].ival));}
 #line 1131 "ap2Bison.tab.c"
     break;
@@ -1324,7 +1324,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 79 "ap2Bison.y"
+#line 80 "ap2Bison.y"
 
 
 int main(){

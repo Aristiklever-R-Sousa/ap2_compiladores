@@ -28,7 +28,7 @@ COMENTARIO #.*
 
 {VAR}                {return VAR;}
 {PRINT}              {return PRINT;}
-{ID}                 {return ID;}
+{ID}                 {yylval.sval = strdup(yytext); return ID;}
 {OP_ATT}             {return OP_ATT;}
 {OP_SOM}             {return OP_SOM;}
 {OP_SUB}             {return OP_SUB;}

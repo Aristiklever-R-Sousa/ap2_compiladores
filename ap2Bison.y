@@ -33,6 +33,7 @@ void yyerror (const char* s);
 %left OP_SOM OP_SUB
 %left OP_MUL OP_DIV
 
+%type<sval> line
 %type<sval> expressao
 %type<ival> exp_mat
 %type<sval> declaracao
@@ -49,7 +50,7 @@ prog:
 
 line: BARRA_N
     | expressao line                 
-    | expressao BARRA_N      //{printf("Notação posfixa: %s\n", $1); free($1);}
+    | expressao BARRA_N      // {printf("Notação posfixa: %s\n", $1); free($1);}
 ;
 
 expressao: expressao
@@ -58,7 +59,7 @@ expressao: expressao
     | impressao
 ;
 
-declaracao: VAR ID BARRA_N {asprintf(&$$, "Declaracao: %s", $2);}
+declaracao: VAR ID BARRA_N          {printf("Declaracao: %s", $2);}
 ;
 
 atribuicao: ID OP_ATT ID

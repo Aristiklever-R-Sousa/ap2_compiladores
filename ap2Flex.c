@@ -754,7 +754,7 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 31 "ap2Flex.l"
-{return ID;}
+{yylval.sval = strdup(yytext); return ID;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
