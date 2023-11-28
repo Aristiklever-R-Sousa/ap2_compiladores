@@ -15,7 +15,7 @@ flex -o ap2.c ap2.flex
 VAR ["var"]
 PRINT ["print"]
 ID [a-zA-Z][a-zA-Z0-9]*
-OPERADORES [=+-*/]
+OPERADORES (=+-*\/)
 INTEIROS [-+]?[0-9]+
 SIMBOLOS [;#]
 ESPACO [ \t\n]
