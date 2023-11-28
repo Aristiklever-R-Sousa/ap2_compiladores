@@ -8,7 +8,7 @@ y = 20
 
 # Realizado operações
 var resultado
-resultado = x + y * 2
+resultado = x + y * 2 / 5
 
 # Imprimindo o resultado
 print resultado

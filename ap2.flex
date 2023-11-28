@@ -12,26 +12,28 @@ flex -o ap2.c ap2.flex
   */
 %}
 
-VAR ["var"]
-PRINT ["print"]
+VAR ("var")
+PRINT ("print")
 ID [a-zA-Z][a-zA-Z0-9]*
-OPERADORES (=+-*\/)
+OPERADORES [*/=+-]
 INTEIROS [-+]?[0-9]+
 SIMBOLOS [;#]
-ESPACO [ \t\n]
+ESPACO [ \t]
+BARRA_N[\n]
 COMENTARIO #.*
 
 
 %%
 
-{VAR}         {printf("%s", yytext);}
-{PRINT}       {printf("%s", yytext);}
-{ID}          {printf("%s", yytext);}
-{OPERADORES}  {printf("%s", yytext);}
-{INTEIROS}    {printf("%s", yytext);}
-{SIMBOLOS}    {printf("%s", yytext);}
-{ESPACO}      {printf("%s", yytext);}
-{COMENTARIO}  {printf("%s", yytext);}
+{VAR}         {printf("VAR %s\n", yytext);}
+{PRINT}       {printf("PRINT %s\n", yytext);}
+{ID}          {printf("ID %s\n", yytext);}
+{OPERADORES}  {printf("OPERADORES %s\n", yytext);}
+{INTEIROS}    {printf("INTEIROS %s\n", yytext);}
+{SIMBOLOS}    {printf("SIMBOLOS %s\n", yytext);}
+{ESPACO}      {printf("ESPACO %s", yytext);}
+{BARRA_N}      {printf("BARRA_N %s", yytext);}
+{COMENTARIO}  {printf("COMENTARIO %s\n", yytext);}
 
 %%
 
