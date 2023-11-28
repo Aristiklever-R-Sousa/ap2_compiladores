@@ -8,7 +8,7 @@
 %}
 
 ESPACO [ ]
-COMENTARIO #[ a-zA-Z][a-zA-Z0-9]*
+COMENTARIO #.*
 BARRA_T [\t]
 BARRA_N [\n]
 var [a-zA-Z][a-zA-Z0-9]*
