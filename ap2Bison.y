@@ -24,7 +24,7 @@ void yyerror (const char* s);
 %token OP_ATT
 %token OP_SOM OP_SUB OP_MUL OP_DIV
 %token<ival> INTEIRO
-%token PONTO_E_VIRGULA
+//%token PONTO_E_VIRGULA
 //%token JOGO_DA_VELHA
 //%token ESPACO
 %token BARRA_N
