@@ -1,0 +1,7 @@
+flex -o ap2Flex.c ap2Flex.l ; bison -d ap2Bison.y ; gcc -o ap2 ap2Flex.c ap2Bison.tab.c -lfl -lm ; ./ap2
+
+./erase.sh
+flex -o ap2Flex.c ap2Flex.l
+bison -d ap2Bison.y
+gcc -o ap2 ap2Flex.c ap2Bison.tab.c -lfl -lm
+./ap2

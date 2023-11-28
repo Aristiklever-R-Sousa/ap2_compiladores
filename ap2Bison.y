@@ -24,7 +24,7 @@ void yyerror (const char* s);
 %token OP_ATT
 %token OP_SOM OP_SUB OP_MUL OP_DIV
 %token<ival> INTEIRO
-//%token PONTO_E_VIRGULA
+%token PONTO_E_VIRGULA
 //%token JOGO_DA_VELHA
 //%token ESPACO
 %token BARRA_N
@@ -35,7 +35,7 @@ void yyerror (const char* s);
 
 %type<sval> line
 %type<sval> expressao
-%type<ival> exp_mat
+%type<sval> exp_mat
 %type<sval> declaracao
 %type<sval> atribuicao
 %type<sval> impressao
@@ -50,31 +50,31 @@ prog:
 
 line: BARRA_N
     | expressao line                 
-    | expressao BARRA_N      // {printf("Notação posfixa: %s\n", $1); free($1);}
+    | expressao BARRA_N line
 ;
 
 expressao: expressao
-    | declaracao
-    | atribuicao
-    | impressao
+         | declaracao
+         | atribuicao
+         | impressao
 ;
 
-declaracao: VAR ID BARRA_N          {printf("Declaracao: %s", $2);}
+declaracao: VAR ID BARRA_N          {printf("Declarou(%s)\n", $2);}
 ;
 
-atribuicao: ID OP_ATT ID
-    | ID OP_ATT INTEIRO
-    | ID OP_ATT exp_mat
+atribuicao: ID OP_ATT ID            {printf("%s = %s\n", $1, $3);}
+          | ID OP_ATT exp_mat       {printf("%s = %s\n", $1, $3);}
 ;
 
-impressao: PRINT ID
+impressao: PRINT ID            {printf("Imprimiu(%s)\n", $2);}
 ;
 
-exp_mat: INTEIRO                   {asprintf(&$$, "%d", $1);}
-    | exp_mat OP_SOM exp_mat       {asprintf(&$$, "%s %s +", $1, $3); free($1); free($3);}
-    | exp_mat OP_SUB exp_mat       {asprintf(&$$, "%s %s -", $1, $3); free($1); free($3);}
-    | exp_mat OP_MUL exp_mat       {asprintf(&$$, "%s %s *", $1, $3); free($1); free($3);}
-    | exp_mat OP_DIV exp_mat       {asprintf(&$$, "%s %s /", $1, $3); free($1); free($3);}
+exp_mat: ID                     {asprintf(&$$, "%s", $1);}
+       | INTEIRO                {asprintf(&$$, "%d", $1);}
+       | exp_mat OP_SOM exp_mat {asprintf(&$$, "%s + %s", $1, $3); free($1); free($3);}
+       | exp_mat OP_SUB exp_mat {asprintf(&$$, "%s - %s", $1, $3); free($1); free($3);}
+       | exp_mat OP_MUL exp_mat {asprintf(&$$, "%s * %s", $1, $3); free($1); free($3);}
+       | exp_mat OP_DIV exp_mat {asprintf(&$$, "%s / %s", $1, $3); free($1); free($3);}
 ;
 
 %%
