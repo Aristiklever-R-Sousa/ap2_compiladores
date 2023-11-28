@@ -2,7 +2,7 @@
   #include <stdio.h>
   int cont = 0;
   /*
-    flex ap1.flex && gcc lex.yy.c -lfl
+    flex ap2.flex && gcc lex.yy.c -lfl
     clear && ./a.out < input.txt
   */
 %}
