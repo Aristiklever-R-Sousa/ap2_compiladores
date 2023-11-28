@@ -466,7 +466,7 @@ union yyalloc
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  8
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  21
+#define YYNRULES  22
 /* YYNSTATES -- Number of states.  */
 #define YYNSTATES  32
 
@@ -520,7 +520,7 @@ static const yytype_int8 yyrline[] =
 {
        0,    47,    47,    48,    51,    52,    53,    54,    57,    58,
       59,    60,    63,    66,    67,    70,    73,    74,    75,    76,
-      77,    78
+      77,    78,    79
 };
 #endif
 
@@ -554,7 +554,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-17)
+#define YYTABLE_NINF (-20)
 
 #define yytable_value_is_error(Yyn) \
   0
@@ -575,9 +575,9 @@ static const yytype_int8 yypact[] =
 static const yytype_int8 yydefact[] =
 {
        2,     0,     0,     0,     4,     0,     3,     0,     9,    10,
-      11,     0,    15,     0,     5,     1,     4,     6,    12,    13,
-      17,    14,     5,     0,     0,     0,     0,    16,    18,    19,
-      20,    21
+      11,     0,    15,    16,     5,     1,     4,     6,    12,    13,
+      20,    14,     5,    16,    16,    16,    16,    19,    21,    22,
+      17,    18
 };
 
 /* YYPGOTO[NTERM-NUM].  */
@@ -599,7 +599,7 @@ static const yytype_int8 yytable[] =
 {
       14,    25,    26,    17,     1,     2,     3,     1,     2,     3,
       19,    15,    22,    27,     4,    11,    20,    16,    13,    20,
-     -16,   -16,   -16,   -16,    23,    24,    25,    26,    12,    28,
+     -19,   -19,   -19,   -19,    23,    24,    25,    26,    12,    28,
       29,    30,    31,    18
 };
 
@@ -626,15 +626,15 @@ static const yytype_int8 yyr1[] =
 {
        0,    14,    15,    15,    16,    16,    16,    16,    17,    17,
       17,    17,    18,    19,    19,    20,    21,    21,    21,    21,
-      21,    21
+      21,    21,    21
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     1,     1,     2,     2,     3,     1,     1,
-       1,     1,     3,     3,     3,     2,     1,     1,     3,     3,
-       3,     3
+       1,     1,     3,     3,     3,     2,     0,     3,     3,     1,
+       1,     3,     3
 };
 
 
@@ -1099,61 +1099,61 @@ yyreduce:
     {
   case 12: /* declaracao: VAR ID BARRA_N  */
 #line 63 "ap2Bison.y"
-                                    {printf("Declarou(%s)\n", (yyvsp[-1].sval));}
+                                    {printf("loadI 0 => r_%s\n", (yyvsp[-1].sval));}
 #line 1104 "ap2Bison.tab.c"
     break;
 
   case 13: /* atribuicao: ID OP_ATT ID  */
 #line 66 "ap2Bison.y"
-                                    {printf("%s = %s\n", (yyvsp[-2].sval), (yyvsp[0].sval));}
+                                    {printf("loadI %s => r_%s\n", (yyvsp[0].sval), (yyvsp[-2].sval));}
 #line 1110 "ap2Bison.tab.c"
     break;
 
   case 14: /* atribuicao: ID OP_ATT exp_mat  */
 #line 67 "ap2Bison.y"
-                                    {printf("%s = %s\n", (yyvsp[-2].sval), (yyvsp[0].sval));}
+                                    {printf("loadI %s => r_%s\n", (yyvsp[0].sval), (yyvsp[-2].sval));}
 #line 1116 "ap2Bison.tab.c"
     break;
 
   case 15: /* impressao: PRINT ID  */
 #line 70 "ap2Bison.y"
-                               {printf("Imprimiu(%s)\n", (yyvsp[0].sval));}
+                               {printf("output r_%s\n", (yyvsp[0].sval));}
 #line 1122 "ap2Bison.tab.c"
     break;
 
-  case 16: /* exp_mat: ID  */
-#line 73 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%s", (yyvsp[0].sval));}
+  case 17: /* exp_mat: exp_mat OP_MUL exp_mat  */
+#line 74 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "mult %s, %s => t\n", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1128 "ap2Bison.tab.c"
     break;
 
-  case 17: /* exp_mat: INTEIRO  */
-#line 74 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%d", (yyvsp[0].ival));}
+  case 18: /* exp_mat: exp_mat OP_DIV exp_mat  */
+#line 75 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "div %s, %s => t\n", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1134 "ap2Bison.tab.c"
     break;
 
-  case 18: /* exp_mat: exp_mat OP_SOM exp_mat  */
-#line 75 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%s + %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
+  case 19: /* exp_mat: ID  */
+#line 76 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "r_%s", (yyvsp[0].sval));}
 #line 1140 "ap2Bison.tab.c"
     break;
 
-  case 19: /* exp_mat: exp_mat OP_SUB exp_mat  */
-#line 76 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%s - %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
+  case 20: /* exp_mat: INTEIRO  */
+#line 77 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "%d\n", (yyvsp[0].ival));}
 #line 1146 "ap2Bison.tab.c"
     break;
 
-  case 20: /* exp_mat: exp_mat OP_MUL exp_mat  */
-#line 77 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%s * %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
+  case 21: /* exp_mat: exp_mat OP_SOM exp_mat  */
+#line 78 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "add %s, %s => t\n", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1152 "ap2Bison.tab.c"
     break;
 
-  case 21: /* exp_mat: exp_mat OP_DIV exp_mat  */
-#line 78 "ap2Bison.y"
-                                {asprintf(&(yyval.sval), "%s / %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
+  case 22: /* exp_mat: exp_mat OP_SUB exp_mat  */
+#line 79 "ap2Bison.y"
+                                {asprintf(&(yyval.sval), "sub %s, %s => t\n", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1158 "ap2Bison.tab.c"
     break;
 
@@ -1351,7 +1351,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 81 "ap2Bison.y"
+#line 82 "ap2Bison.y"
 
 
 int main(){

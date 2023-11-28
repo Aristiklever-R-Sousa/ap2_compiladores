@@ -60,22 +60,23 @@ expressao: expressao
          | impressao
 ;
 
-declaracao: VAR ID BARRA_N          {printf("Declarou(%s)\n", $2);}
+declaracao: VAR ID BARRA_N          {printf("loadI 0 => r_%s\n", $2);}
 ;
 
-atribuicao: ID OP_ATT ID            {printf("%s = %s\n", $1, $3);}
-          | ID OP_ATT exp_mat       {printf("%s = %s\n", $1, $3);}
+atribuicao: ID OP_ATT ID            {printf("loadI %s => r_%s\n", $3, $1);}
+          | ID OP_ATT exp_mat       {printf("loadI %s => r_%s\n", $3, $1);}
 ;
 
-impressao: PRINT ID            {printf("Imprimiu(%s)\n", $2);}
+impressao: PRINT ID            {printf("output r_%s\n", $2);}
 ;
 
-exp_mat: ID                     {asprintf(&$$, "%s", $1);}
-       | INTEIRO                {asprintf(&$$, "%d", $1);}
-       | exp_mat OP_SOM exp_mat {asprintf(&$$, "%s + %s", $1, $3); free($1); free($3);}
-       | exp_mat OP_SUB exp_mat {asprintf(&$$, "%s - %s", $1, $3); free($1); free($3);}
-       | exp_mat OP_MUL exp_mat {asprintf(&$$, "%s * %s", $1, $3); free($1); free($3);}
-       | exp_mat OP_DIV exp_mat {asprintf(&$$, "%s / %s", $1, $3); free($1); free($3);}
+exp_mat:
+       | exp_mat OP_MUL exp_mat {asprintf(&$$, "mult %s, %s => t\n", $1, $3); free($1); free($3);}
+       | exp_mat OP_DIV exp_mat {asprintf(&$$, "div %s, %s => t\n", $1, $3); free($1); free($3);}
+       | ID                     {asprintf(&$$, "r_%s", $1);}
+       | INTEIRO                {asprintf(&$$, "%d\n", $1);}       
+       | exp_mat OP_SOM exp_mat {asprintf(&$$, "add %s, %s => t\n", $1, $3); free($1); free($3);}
+       | exp_mat OP_SUB exp_mat {asprintf(&$$, "sub %s, %s => t\n", $1, $3); free($1); free($3);}
 ;
 
 %%
