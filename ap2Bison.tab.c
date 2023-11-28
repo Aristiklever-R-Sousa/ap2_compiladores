@@ -457,18 +457,18 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  14
+#define YYFINAL  15
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   32
+#define YYLAST   33
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  14
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  8
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  20
+#define YYNRULES  21
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  31
+#define YYNSTATES  32
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   268
@@ -518,9 +518,9 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    47,    47,    48,    51,    52,    53,    56,    57,    58,
-      59,    62,    65,    66,    69,    72,    73,    74,    75,    76,
-      77
+       0,    47,    47,    48,    51,    52,    53,    54,    57,    58,
+      59,    60,    63,    66,    67,    70,    73,    74,    75,    76,
+      77,    78
 };
 #endif
 
@@ -549,12 +549,12 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-4)
+#define YYPACT_NINF (-9)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-16)
+#define YYTABLE_NINF (-17)
 
 #define yytable_value_is_error(Yyn) \
   0
@@ -563,10 +563,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,     7,    21,    10,    -4,    31,    -4,     0,    -4,    -4,
-      -4,    19,    -4,     4,    -4,    -3,    -4,    -4,    11,    -4,
-      15,    -4,     6,     6,     6,     6,    -4,    -2,    -2,    -4,
-      -4
+       1,    10,    23,    12,     1,    11,    -9,     4,    -9,    -9,
+      -9,    20,    -9,     5,    -9,    -9,     1,    -9,    -9,    13,
+      -9,    17,    -9,     8,     8,     8,     8,    -9,    -8,    -8,
+      -9,    -9
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -574,22 +574,22 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       2,     0,     0,     0,     4,     0,     3,     0,     8,     9,
-      10,     0,    14,     0,     1,     4,     5,    11,    12,    16,
-      13,     6,     0,     0,     0,     0,    15,    17,    18,    19,
-      20
+       2,     0,     0,     0,     4,     0,     3,     0,     9,    10,
+      11,     0,    15,     0,     5,     1,     4,     6,    12,    13,
+      17,    14,     5,     0,     0,     0,     0,    16,    18,    19,
+      20,    21
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,    -1,    -4,    -4,    -4,    -4,     5
+      -9,    -9,    -4,    -9,    -9,    -9,    -9,     6
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     5,     6,     7,     8,     9,    10,    20
+       0,     5,     6,     7,     8,     9,    10,    21
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -597,18 +597,18 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     2,     3,     1,     2,     3,    16,    24,    25,    18,
-       4,    26,    11,    15,    21,    19,    13,    19,   -15,   -15,
-     -15,   -15,    22,    23,    24,    25,    12,    27,    28,    29,
-      30,    14,    17
+      14,    25,    26,    17,     1,     2,     3,     1,     2,     3,
+      19,    15,    22,    27,     4,    11,    20,    16,    13,    20,
+     -16,   -16,   -16,   -16,    23,    24,    25,    26,    12,    28,
+      29,    30,    31,    18
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     4,     5,     3,     4,     5,     7,     9,    10,     5,
-      13,     5,     5,    13,    15,    11,     6,    11,     7,     8,
-       9,    10,     7,     8,     9,    10,     5,    22,    23,    24,
-      25,     0,    13
+       4,     9,    10,     7,     3,     4,     5,     3,     4,     5,
+       5,     0,    16,     5,    13,     5,    11,    13,     6,    11,
+       7,     8,     9,    10,     7,     8,     9,    10,     5,    23,
+      24,    25,    26,    13
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -616,25 +616,25 @@ static const yytype_int8 yycheck[] =
 static const yytype_int8 yystos[] =
 {
        0,     3,     4,     5,    13,    15,    16,    17,    18,    19,
-      20,     5,     5,     6,     0,    13,    16,    13,     5,    11,
-      21,    16,     7,     8,     9,    10,     5,    21,    21,    21,
-      21
+      20,     5,     5,     6,    16,     0,    13,    16,    13,     5,
+      11,    21,    16,     7,     8,     9,    10,     5,    21,    21,
+      21,    21
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    14,    15,    15,    16,    16,    16,    17,    17,    17,
-      17,    18,    19,    19,    20,    21,    21,    21,    21,    21,
-      21
+       0,    14,    15,    15,    16,    16,    16,    16,    17,    17,
+      17,    17,    18,    19,    19,    20,    21,    21,    21,    21,
+      21,    21
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     0,     1,     1,     2,     3,     1,     1,     1,
-       1,     3,     3,     3,     2,     1,     1,     3,     3,     3,
-       3
+       0,     2,     0,     1,     1,     2,     2,     3,     1,     1,
+       1,     1,     3,     3,     3,     2,     1,     1,     3,     3,
+       3,     3
 };
 
 
@@ -1097,62 +1097,62 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 11: /* declaracao: VAR ID BARRA_N  */
-#line 62 "ap2Bison.y"
+  case 12: /* declaracao: VAR ID BARRA_N  */
+#line 63 "ap2Bison.y"
                                     {printf("Declarou(%s)\n", (yyvsp[-1].sval));}
 #line 1104 "ap2Bison.tab.c"
     break;
 
-  case 12: /* atribuicao: ID OP_ATT ID  */
-#line 65 "ap2Bison.y"
+  case 13: /* atribuicao: ID OP_ATT ID  */
+#line 66 "ap2Bison.y"
                                     {printf("%s = %s\n", (yyvsp[-2].sval), (yyvsp[0].sval));}
 #line 1110 "ap2Bison.tab.c"
     break;
 
-  case 13: /* atribuicao: ID OP_ATT exp_mat  */
-#line 66 "ap2Bison.y"
+  case 14: /* atribuicao: ID OP_ATT exp_mat  */
+#line 67 "ap2Bison.y"
                                     {printf("%s = %s\n", (yyvsp[-2].sval), (yyvsp[0].sval));}
 #line 1116 "ap2Bison.tab.c"
     break;
 
-  case 14: /* impressao: PRINT ID  */
-#line 69 "ap2Bison.y"
+  case 15: /* impressao: PRINT ID  */
+#line 70 "ap2Bison.y"
                                {printf("Imprimiu(%s)\n", (yyvsp[0].sval));}
 #line 1122 "ap2Bison.tab.c"
     break;
 
-  case 15: /* exp_mat: ID  */
-#line 72 "ap2Bison.y"
+  case 16: /* exp_mat: ID  */
+#line 73 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%s", (yyvsp[0].sval));}
 #line 1128 "ap2Bison.tab.c"
     break;
 
-  case 16: /* exp_mat: INTEIRO  */
-#line 73 "ap2Bison.y"
+  case 17: /* exp_mat: INTEIRO  */
+#line 74 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%d", (yyvsp[0].ival));}
 #line 1134 "ap2Bison.tab.c"
     break;
 
-  case 17: /* exp_mat: exp_mat OP_SOM exp_mat  */
-#line 74 "ap2Bison.y"
+  case 18: /* exp_mat: exp_mat OP_SOM exp_mat  */
+#line 75 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%s + %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1140 "ap2Bison.tab.c"
     break;
 
-  case 18: /* exp_mat: exp_mat OP_SUB exp_mat  */
-#line 75 "ap2Bison.y"
+  case 19: /* exp_mat: exp_mat OP_SUB exp_mat  */
+#line 76 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%s - %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1146 "ap2Bison.tab.c"
     break;
 
-  case 19: /* exp_mat: exp_mat OP_MUL exp_mat  */
-#line 76 "ap2Bison.y"
+  case 20: /* exp_mat: exp_mat OP_MUL exp_mat  */
+#line 77 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%s * %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1152 "ap2Bison.tab.c"
     break;
 
-  case 20: /* exp_mat: exp_mat OP_DIV exp_mat  */
-#line 77 "ap2Bison.y"
+  case 21: /* exp_mat: exp_mat OP_DIV exp_mat  */
+#line 78 "ap2Bison.y"
                                 {asprintf(&(yyval.sval), "%s / %s", (yyvsp[-2].sval), (yyvsp[0].sval)); free((yyvsp[-2].sval)); free((yyvsp[0].sval));}
 #line 1158 "ap2Bison.tab.c"
     break;
@@ -1351,7 +1351,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 80 "ap2Bison.y"
+#line 81 "ap2Bison.y"
 
 
 int main(){

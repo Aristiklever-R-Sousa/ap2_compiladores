@@ -21,7 +21,7 @@ PONTO_E_VIRGULA [;]
 JOGO_DA_VELHA #
 ESPACO [ \t]
 BARRA_N [\n]
-COMENTARIO #.*
+COMENTARIO "#".*\n
 
 
 %%

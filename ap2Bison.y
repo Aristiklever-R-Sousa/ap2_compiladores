@@ -49,6 +49,7 @@ prog:
 ;
 
 line: BARRA_N
+    | BARRA_N line
     | expressao line                 
     | expressao BARRA_N line
 ;
