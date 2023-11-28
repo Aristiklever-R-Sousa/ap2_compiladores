@@ -1,0 +1,14 @@
+# Declarando variáveis
+var x
+var y
+
+# Atribuindo valores
+x = 10
+y = 20
+
+# Realizado operações
+var resultado
+resultado = x + y * 2
+
+# Imprimindo o resultado
+print resultado
