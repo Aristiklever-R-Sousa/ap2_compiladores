@@ -1,6 +1,6 @@
-#line 2 "ap2.c"
+#line 2 "ap2Flex.c"
 
-#line 4 "ap2.c"
+#line 4 "ap2Flex.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -454,15 +454,15 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "ap2.flex"
-#line 2 "ap2.flex"
+#line 1 "ap2Flex.l"
+#line 2 "ap2Flex.l"
   #include <stdio.h>
 
 /*
-  flex -o ap2.c ap2.flex && gcc -o ap2.out ap2.c -lfl && ./ap2.out < input.txt
+  flex -o ap2Flex.c ap2Flex.l && gcc -o ap2Flex.out ap2Flex.c -lfl && ./ap2Flex.out < input.txt
 */
-#line 465 "ap2.c"
-#line 466 "ap2.c"
+#line 465 "ap2Flex.c"
+#line 466 "ap2Flex.c"
 
 #define INITIAL 0
 
@@ -679,10 +679,10 @@ YY_DECL
 		}
 
 	{
-#line 25 "ap2.flex"
+#line 25 "ap2Flex.l"
 
 
-#line 686 "ap2.c"
+#line 686 "ap2Flex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -741,81 +741,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 27 "ap2.flex"
+#line 27 "ap2Flex.l"
 {printf("VAR %s\n", yytext);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 28 "ap2.flex"
+#line 28 "ap2Flex.l"
 {printf("PRINT %s\n", yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 29 "ap2.flex"
+#line 29 "ap2Flex.l"
 {printf("ID %s\n", yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 30 "ap2.flex"
+#line 30 "ap2Flex.l"
 {printf("OP_ATT %s\n", yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 31 "ap2.flex"
+#line 31 "ap2Flex.l"
 {printf("OP_SOM %s\n", yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 32 "ap2.flex"
+#line 32 "ap2Flex.l"
 {printf("OP_SUB %s\n", yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 33 "ap2.flex"
+#line 33 "ap2Flex.l"
 {printf("OP_MUL %s\n", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 34 "ap2.flex"
+#line 34 "ap2Flex.l"
 {printf("OP_DIV %s\n", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 35 "ap2.flex"
+#line 35 "ap2Flex.l"
 {printf("INTEIRO %s\n", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 36 "ap2.flex"
+#line 36 "ap2Flex.l"
 {printf("PONTO_E_VIRGULA %s\n", yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 37 "ap2.flex"
+#line 37 "ap2Flex.l"
 {printf("JOGO_DA_VELHA %s\n", yytext);}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 38 "ap2.flex"
+#line 38 "ap2Flex.l"
 {printf("ESPACO %s\n", yytext);}
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 39 "ap2.flex"
+#line 39 "ap2Flex.l"
 {printf("BARRA_N %s", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 40 "ap2.flex"
+#line 40 "ap2Flex.l"
 {printf("COMENTARIO %s\n", yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 42 "ap2.flex"
+#line 42 "ap2Flex.l"
 ECHO;
 	YY_BREAK
-#line 819 "ap2.c"
+#line 819 "ap2Flex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1820,7 +1820,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 42 "ap2.flex"
+#line 42 "ap2Flex.l"
 
 
 int main() {

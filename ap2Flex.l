@@ -2,7 +2,7 @@
   #include <stdio.h>
 
 /*
-  flex -o ap2.c ap2.flex && gcc -o ap2.out ap2.c -lfl && ./ap2.out < input.txt
+  flex -o ap2Flex.c ap2Flex.l && gcc -o ap2Flex.out ap2Flex.c -lfl && ./ap2Flex.out < input.txt
 */
 %}
 
