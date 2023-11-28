@@ -1,15 +1,9 @@
-/*
-flex -o ap2.c ap2.flex
-*/
 %{
   #include <stdio.h>
 
-  /*
-    flex ap2.flex && gcc lex.yy.c -lfl &&
-    clear && ./a.out < input.txt
-
-    flex ap2.flex && gcc lex.yy.c -lfl && ./a.out < input.txt
-  */
+/*
+  flex -o ap2.c ap2.flex && gcc -o ap2.out ap2.c -lfl && ./ap2.out < input.txt
+*/
 %}
 
 VAR ("var")
@@ -19,7 +13,7 @@ OPERADORES [*/=+-]
 INTEIROS [-+]?[0-9]+
 SIMBOLOS [;#]
 ESPACO [ \t]
-BARRA_N[\n]
+BARRA_N [\n]
 COMENTARIO #.*
 
 
